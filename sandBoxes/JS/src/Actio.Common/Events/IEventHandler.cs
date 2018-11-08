@@ -1,12 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace Actio.Common.Events
 {
+    /// <summary>
+    /// Handles an event
+    /// </summary>
+    /// <typeparam name="T">The type of event which implements IEvent</typeparam>
     public interface IEventHandler<in T> where T: IEvent
     {
-        Task HandleAsync(T @event);
+        /// <summary>
+        /// Handles the event asynchronously
+        /// </summary>
+        /// <param name="event">The event to handle</param>
+        /// <returns>Async task</returns>
+        Task HandleAsync(T @event); //'@' allows the use of a reserved keyword as a variable name
     }
 }
