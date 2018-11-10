@@ -11,6 +11,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="RawRabbit" Version="2.0.0-beta9" />
+    <PackageReference Include="RawRabbit.Operations.Publish" Version="2.0.0-beta9" />
+    <PackageReference Include="RawRabbit.Operations.Subscribe" Version="2.0.0-beta9" />
   </ItemGroup>
 
   <ItemGroup>

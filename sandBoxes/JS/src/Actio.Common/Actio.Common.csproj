@@ -7,8 +7,10 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore" Version="2.1.4" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.1.1" />
-    <PackageReference Include="RawRabbit" Version="1.10.4" />
+    <PackageReference Include="RawRabbit" Version="2.0.0-beta9" />
     <PackageReference Include="RawRabbit.DependencyInjection.Ninject" Version="1.10.4" />
+    <PackageReference Include="RawRabbit.Operations.Publish" Version="2.0.0-beta9" />
+    <PackageReference Include="RawRabbit.Operations.Subscribe" Version="2.0.0-beta9" />
   </ItemGroup>
 
 </Project>
