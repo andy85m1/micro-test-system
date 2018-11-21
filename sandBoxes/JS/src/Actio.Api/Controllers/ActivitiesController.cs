@@ -9,6 +9,9 @@ namespace Actio.Api.Controllers
     [Route("[controller]")]
     public class ActivitiesController : Controller
     {
+        /// <summary>
+        /// RabbitMQ bus client
+        /// </summary>
         private readonly IBusClient _busClient;
 
         /// <summary>
