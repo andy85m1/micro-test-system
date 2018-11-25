@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Actio.Common.Commands;
+﻿using Actio.Common.Commands;
 using Actio.Common.Services;
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 
 namespace Actio.Services.Activities
 {
     public class Program
     {
+        /// <summary>
+        /// Main entry point into the service
+        /// Creates, subscribes to the <see cref="CreateActivity"/> event, builds and runs the service
+        /// </summary>
+        /// <param name="args">Command line arguements</param>
         public static void Main(string[] args)
         {
             ServiceHost.Create<Startup>(args)
