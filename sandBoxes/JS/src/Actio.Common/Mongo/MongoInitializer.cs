@@ -14,15 +14,17 @@ namespace Actio.Common.Mongo
         private bool _initialized;
         private readonly bool _seed;
         private readonly IMongoDatabase _database;
+        private readonly IDatabaseSeeder _seeder;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="database">A MongoDB database</param>
         /// <param name="options">MongoDB options</param>
-        public MongoInitializer(IMongoDatabase database, IOptions<MongoOptions> options)
+        public MongoInitializer(IMongoDatabase database, IDatabaseSeeder seeder, IOptions<MongoOptions> options)
         {
             _database = database;
+            _seeder = seeder;
             _seed = options.Value.Seed;
         }
         
@@ -40,6 +42,8 @@ namespace Actio.Common.Mongo
 
             if (!_seed)
                 return;
+
+            await _seeder.SeedAsync();
         }
 
         /// <summary>
