@@ -13,7 +13,7 @@ namespace Actio.Services.Activities.Services
         private readonly IActivityRepository _activityRepository;
         private readonly ICategoryRepository _categoryRepository;
 
-        public ActivityService(IActivityService activityRepository, ICategoryRepository categoryRepository)
+        public ActivityService(IActivityRepository activityRepository, ICategoryRepository categoryRepository)
         {
             _activityRepository = activityRepository;
             _categoryRepository = categoryRepository;

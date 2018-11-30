@@ -2,6 +2,9 @@
 
 namespace Actio.Common.Exceptions
 {
+    /// <summary>
+    /// Actio custom exceptions
+    /// </summary>
     public class ActioException : Exception
     {
         public string Code { get; }
