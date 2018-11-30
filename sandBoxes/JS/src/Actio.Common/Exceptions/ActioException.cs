@@ -7,8 +7,15 @@ namespace Actio.Common.Exceptions
     /// </summary>
     public class ActioException : Exception
     {
+        /// <summary>
+        /// Exception code
+        /// </summary>
         public string Code { get; }
 
+        /// <summary>
+        /// Instantiates an exception using the given code
+        /// </summary>
+        /// <param name="code">The exception code</param>
         public ActioException(string code)
         {
             Code = code;
