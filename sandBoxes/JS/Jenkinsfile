@@ -17,6 +17,10 @@ node{
                 bat "\"${tool name: 'MSBUILD', type: 'msbuild'}\" /t:Restore /t:Rebuild Actio.sln"
             }
         }
+
+	stage('Run Static Analysis'){
+
+	}
     
      } catch (e) {
     // If there was an exception thrown, the build failed
