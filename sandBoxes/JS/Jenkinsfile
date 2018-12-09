@@ -1,4 +1,4 @@
-node('andy8'){
+node('win_node_01'){
      try {
         stage('Notify Build Start'){
              notifyBuild('STARTED')
