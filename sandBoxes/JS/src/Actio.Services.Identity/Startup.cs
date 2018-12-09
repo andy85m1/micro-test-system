@@ -1,7 +1,10 @@
 ﻿using Actio.Common.Commands;
+using Actio.Common.Mongo;
 using Actio.Common.RabbitMq;
+using Actio.Services.Identity.Domain.Repositories;
 using Actio.Services.Identity.Domain.Services;
 using Actio.Services.Identity.Handlers;
+using Actio.Services.Identity.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -24,9 +27,11 @@ namespace Actio.Services.Identity
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddLogging();
+            services.AddMongoDB(Configuration);
             services.AddRabbitMq(Configuration);
             services.AddScoped<ICommandHandler<CreateUser>, CreateUserHandler>();
             services.AddScoped<IEncryptor, Encryptor>();
+            services.AddScoped<IUserRepository, UserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,6 +42,7 @@ namespace Actio.Services.Identity
             else
                 app.UseHsts();
 
+            app.ApplicationServices.GetService<IDatabaseInitializer>().InitialiseAsync();
             app.UseHttpsRedirection();
             app.UseMvc();
         }
