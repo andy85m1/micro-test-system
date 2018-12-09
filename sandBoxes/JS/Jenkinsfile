@@ -27,6 +27,9 @@ node('win_node_01'){
             withSonarQubeEnv('sonarQube') {
             bat "${sqScannerMsBuildHome}\\SonarScanner.MSBuild.exe begin /k:bedford /d:sonar.host.url=http://localhost:9000 /d:sonar.login=44aca34ca70e74dd096680f9a53c992ca7b36e74"
             //bat 'MSBuild.exe /t:Rebuild'
+	     dir('sandBoxes/JS/'){
+                bat "\"${tool name: 'MSBUILD', type: 'msbuild'}\" /t:Restore /t:Rebuild Actio.sln"
+            }
             bat "${sqScannerMsBuildHome}\\SonarScanner.MSBuild.exe end /d:sonar.login=44aca34ca70e74dd096680f9a53c992ca7b36e74"
         }
   }
