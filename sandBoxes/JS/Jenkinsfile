@@ -1,4 +1,4 @@
-node{
+node('andy8'){
      try {
         stage('Notify Build Start'){
              notifyBuild('STARTED')
