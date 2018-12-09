@@ -6,14 +6,14 @@ node('win_node_01'){
         }
     
         stage ('Nuget Restore'){
-            dir('sandBoxes/JS/') {
+            dir('Actio-Microservices/sandBoxes/JS/') {
     		    bat "\"${env.nuget}\" restore Actio.sln"
             }
         }
         
         
         stage('Build'){
-            dir('sandBoxes/JS/'){
+            dir('Actio-Microservices/sandBoxes/JS/'){
                 bat "\"${tool name: 'MSBUILD', type: 'msbuild'}\" /t:Restore /t:Rebuild Actio.sln"
             }
         }
