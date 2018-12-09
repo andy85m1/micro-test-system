@@ -12,14 +12,14 @@
         public string Email { get; }
 
         /// <summary>
-        /// The reason for rejection
-        /// </summary>
-        public string Reason { get; }
-
-        /// <summary>
         /// The rejection code
         /// </summary>
         public string Code { get; }
+
+        /// <summary>
+        /// The reason for rejection
+        /// </summary>
+        public string Reason { get; }
 
         /// <summary>
         /// Protected constructor
@@ -32,13 +32,13 @@
         /// Constructor
         /// </summary>
         /// <param name="email">The rejected user's email</param>
-        /// <param name="reason">The reason for rejection</param>
-        /// <param name="code">The rejection code</param>
-        public CreateUserRejected(string email, string reason, string code)
+        /// /// <param name="code">The rejection code</param>
+        /// <param name="reason">The reason for rejection</param>        
+        public CreateUserRejected(string email, string code, string reason)
         {
             Email = email;
-            Reason = reason;
             Code = code;
+            Reason = reason;   
         }
     }
 }
