@@ -6,7 +6,7 @@
 #RabbitMQ
 $pi = New-Object System.Diagnostics.ProcessStartInfo
 $pi.FileName = "powershell.exe"
-$pi.Arguments = "-noexit C:\Users\jspar\source\repos\andy85m1\micro-test-system\sandBoxes\JS\scripts\Powershell\RabbitMQ.ps1"
+$pi.Arguments = "-noexit C:\Users\jspar\source\repos\andy85m1\micro-test-system\sandBoxes\JS\scripts\Powershell\RabbitMQ.ps1 -Command `$Host.UI.RawUI.WindowTitle=`'RabbitMQ`'"
 [System.Diagnostics.Process]::Start($pi)
 
 Start-Sleep -s 10
@@ -14,7 +14,7 @@ Start-Sleep -s 10
 #MongoDB
 $pi = New-Object System.Diagnostics.ProcessStartInfo
 $pi.FileName = "powershell.exe"
-$pi.Arguments = "-noexit C:\Users\jspar\source\repos\andy85m1\micro-test-system\sandBoxes\JS\scripts\Powershell\MongoDB.ps1"
+$pi.Arguments = "-noexit C:\Users\jspar\source\repos\andy85m1\micro-test-system\sandBoxes\JS\scripts\Powershell\MongoDB.ps1 -Command `$Host.UI.RawUI.WindowTitle=`'MongoDB`'"
 [System.Diagnostics.Process]::Start($pi)
 
 Start-Sleep -s 10
