@@ -1,1 +1,1 @@
-﻿docker container run -d -p 27017:27017 mongo
+﻿docker container run -p 27017:27017 mongo

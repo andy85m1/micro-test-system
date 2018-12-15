@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Actio.Common\Actio.Common.csproj" />
     <ProjectReference Include="..\Actio.Services.Activities\Actio.Services.Activities.csproj" />
+    <ProjectReference Include="..\Actio.Services.Identity\Actio.Services.Identity.csproj" />
   </ItemGroup>
 
 </Project>

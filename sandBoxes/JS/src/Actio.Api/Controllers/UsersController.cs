@@ -1,6 +1,7 @@
 ﻿using Actio.Common.Commands;
 using Microsoft.AspNetCore.Mvc;
 using RawRabbit;
+using System;
 using System.Threading.Tasks;
 
 namespace Actio.Api.Controllers
@@ -27,12 +28,12 @@ namespace Actio.Api.Controllers
         /// </summary>
         /// <param name="command">The command to send to the bus</param>
         /// <returns></returns>
-        [HttpPost("register")]
+        [HttpPost("")]
         public async Task<IActionResult> Post([FromBody]CreateUser command)
-        {
+        {            
             await _busClient.PublishAsync(command);
 
-            return Accepted();
+            return Accepted($"users/{command.Name}");
         }
     }
 }

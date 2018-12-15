@@ -55,7 +55,7 @@ namespace Actio.Services.Activities.Handlers
             {
                 await _activityService.AddAsync(command.Id, command.UserId, command.Category, command.Name, command.Description, command.CreatedAt);
 
-                await _busClient.PublishAsync(new ActivityCreated(command.Id, command.UserId, command.Category, command.Name));
+                await _busClient.PublishAsync(new ActivityCreated(command.Id, command.UserId, command.Category, command.Name, command.Description, command.CreatedAt));
 
                 return;
             }

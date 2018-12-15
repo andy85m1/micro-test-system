@@ -7,7 +7,7 @@ namespace Actio.Services.Activities
     {
         /// <summary>
         /// Main entry point into the service
-        /// Creates, subscribes to the <see cref="CreateActivity"/> event, builds and runs the service
+        /// Creates, subscribes to the <see cref="CreateActivity"/> event, builds and runs the webhost
         /// </summary>
         /// <param name="args">Command line arguements</param>
         public static void Main(string[] args)

@@ -17,9 +17,9 @@ namespace Actio.Services.Identity.Handlers
         private readonly IBusClient _busClient;
 
         /// <summary>
-        /// The identity service
+        /// The user service
         /// </summary>
-        private readonly IIdentityService _identityService;
+        private readonly IUserService _userService;
 
         /// <summary>
         /// The logger
@@ -32,10 +32,10 @@ namespace Actio.Services.Identity.Handlers
         /// <param name="busClient">The RawRabbit bus client</param>
         /// <param name="identityService">The identity service</param>
         /// <param name="logger">The logger</param>
-        public CreateUserHandler(IBusClient busClient, IIdentityService identityService, ILogger<CreateUserHandler> logger)
+        public CreateUserHandler(IBusClient busClient, IUserService userService, ILogger<CreateUserHandler> logger)
         {
             _busClient = busClient;
-            _identityService = identityService;
+            _userService = userService;
             _logger = logger;
         }
 
@@ -50,7 +50,7 @@ namespace Actio.Services.Identity.Handlers
 
             try
             {
-                await _identityService.AddAsync(command.Email, command.Name, command.Password);
+                await _userService.RegisterAsync(command.Email, command.Password, command.Name);
 
                 await _busClient.PublishAsync(new UserCreated(command.Email, command.Name));
 

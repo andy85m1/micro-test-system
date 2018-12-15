@@ -40,11 +40,15 @@ namespace Actio.Services.Activities
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddRabbitMq(Configuration);
-            services.AddScoped<ICommandHandler<CreateActivity>, CreateActivityHandler>();
+            services.AddLogging();
+            
+            services.AddMongoDB(Configuration);
             services.AddScoped<IActivityRepository, ActivityRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IDatabaseSeeder, CustomMongoSeeder>();
+
+            services.AddRabbitMq(Configuration);
+            services.AddScoped<ICommandHandler<CreateActivity>, CreateActivityHandler>();
             services.AddScoped<IActivityService, ActivityService>();
         }
 

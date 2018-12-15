@@ -9,8 +9,20 @@ namespace Actio.Services.Identity.Repositories
 {
     public class UserRepository : IUserRepository
     {
+        /// <summary>
+        /// The MongoDB database
+        /// </summary>
         private readonly IMongoDatabase _database;
 
+        /// <summary>
+        /// Gets the Users collection from the repository
+        /// </summary>
+        private IMongoCollection<User> Collection => _database.GetCollection<User>("Users");
+
+        /// <summary>
+        /// Instantiates the MongoDB repository
+        /// </summary>
+        /// <param name="database"></param>
         public UserRepository(IMongoDatabase database)
         {
             _database = database;
@@ -44,6 +56,6 @@ namespace Actio.Services.Identity.Repositories
         public async Task AddAsync(User user)
             => await Collection.InsertOneAsync(user); 
 
-        private IMongoCollection<User> Collection => _database.GetCollection<User>("Users");
+
     }
 }

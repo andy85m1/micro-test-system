@@ -5,6 +5,9 @@ using Actio.Common.RabbitMq;
 using Actio.Services.Activities.Domain.Repositories;
 using Actio.Services.Activities.Repositories;
 using Actio.Services.Activities.Services;
+using Actio.Services.Identity.Domain.Repositories;
+using Actio.Services.Identity.Repositories;
+using Actio.Services.Identity.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -26,13 +29,12 @@ namespace Actio.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
             services.AddMongoDB(Configuration);
-            services.AddRabbitMq(Configuration);
-            services.AddScoped<IEventHandler<ActivityCreated>, ActivityCreatedHandler>();
             services.AddScoped<IActivityRepository, ActivityRepository>();
-            services.AddScoped<ICategoryRepository, CategoryRepository>();
-            services.AddScoped<IDatabaseSeeder, CustomMongoSeeder>();
-            services.AddScoped<IActivityService, ActivityService>();
+
+            services.AddRabbitMq(Configuration);
+            services.AddScoped<IEventHandler<ActivityCreated>, ActivityCreatedHandler>();           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

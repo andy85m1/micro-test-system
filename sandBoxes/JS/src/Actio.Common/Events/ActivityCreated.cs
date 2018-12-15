@@ -54,14 +54,14 @@ namespace Actio.Common.Events
         /// <param name="name">The name of the activity</param>
         /// <param name="description">Description of the activity</param>
         /// <param name="createdAt">The activity creation time stamp</param>
-        public ActivityCreated(Guid id, Guid userId, string category, string name/*, string description, DateTime createdAt*/)
+        public ActivityCreated(Guid id, Guid userId, string category, string name, string description, DateTime createdAt)
         {
             Id = id;
             UserId = userId;
             Category = category;
             Name = name;
-            //Description = description;
-            //CreatedAt = createdAt;
+            Description = description;
+            CreatedAt = createdAt;
         }
     }
 }
