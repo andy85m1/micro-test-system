@@ -19,7 +19,7 @@
     },
     "Actio.Services.Identity": {
       "commandName": "Project",
-      "commandLineArgs": "--urls \"http://*5051\"",
+      "commandLineArgs": "--urls \"http://*:5051\"",
       "launchBrowser": true,
       "launchUrl": "api/values",
       "environmentVariables": {

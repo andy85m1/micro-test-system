@@ -1,5 +1,8 @@
 ﻿namespace Actio.Common.Commands
 {
+    /// <summary>
+    /// The create user command
+    /// </summary>
     public class CreateUser : ICommand
     {
         /// <summary>

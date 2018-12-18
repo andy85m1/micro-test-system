@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace Actio.Services.Identity.Handlers
 {
+    /// <summary>
+    /// Create user command handler
+    /// </summary>
     public class CreateUserHandler : ICommandHandler<CreateUser>
     {
         /// <summary>

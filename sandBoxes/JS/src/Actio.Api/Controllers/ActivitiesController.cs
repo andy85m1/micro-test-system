@@ -1,4 +1,6 @@
 ﻿using Actio.Common.Commands;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RawRabbit;
 using System;
@@ -24,10 +26,10 @@ namespace Actio.Api.Controllers
         }
 
         /// <summary>
-        /// Sends the Create Activity command to the bus
+        /// POST HTTP request handler: Sends the <see cref="CreateActivity"/> command to the bus
         /// </summary>
-        /// <param name="command">The command to send to the bus</param>
-        /// <returns></returns>
+        /// <param name="command">The <see cref="CreateActivity"/> command to send to the bus</param>
+        /// <returns>A 202 Accepted response if successful</returns>
         [HttpPost("")]
         public async Task<IActionResult> Post([FromBody]CreateActivity command)
         {
@@ -38,5 +40,13 @@ namespace Actio.Api.Controllers
 
             return Accepted($"activities/{command.Id}");
         }
+
+        /// <summary>
+        /// GET HTTP request handler
+        /// </summary>
+        /// <returns>Returns A 200 OK response containing "Secured" if the JWT is valid</returns>
+        [HttpGet("")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public IActionResult Get() => Content("Secured");
     }
 }

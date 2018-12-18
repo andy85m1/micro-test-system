@@ -1,5 +1,8 @@
 ﻿namespace Actio.Common.Events
 {
+    /// <summary>
+    /// User Authenticated event
+    /// </summary>
     public class UserAuthenticated : IEvent
     {
         /// <summary>

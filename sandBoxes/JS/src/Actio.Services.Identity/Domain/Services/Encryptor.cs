@@ -3,6 +3,9 @@ using System.Security.Cryptography;
 
 namespace Actio.Services.Identity.Domain.Services
 {
+    /// <summary>
+    /// An encryptor for hashing (with a salt) a password
+    /// </summary>
     public class Encryptor : IEncryptor
     {
         /// <summary>

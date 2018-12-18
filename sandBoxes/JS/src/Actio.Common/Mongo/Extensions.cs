@@ -5,13 +5,16 @@ using MongoDB.Driver;
 
 namespace Actio.Common.Mongo
 {
+    /// <summary>
+    /// MongoDB extension methods
+    /// </summary>
     public static class Extensions
     {
         /// <summary>
-        /// 
+        /// Adds a MongoDB service
         /// </summary>
-        /// <param name="services"></param>
-        /// <param name="configuration"></param>
+        /// <param name="services">Services</param>
+        /// <param name="configuration">Configuration</param>
         public static void AddMongoDB(this IServiceCollection services, IConfiguration configuration)
         {
             services.Configure<MongoOptions>(configuration.GetSection("mongo"));

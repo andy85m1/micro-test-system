@@ -1,5 +1,8 @@
 ﻿namespace Actio.Common.Commands
 {
+    /// <summary>
+    /// The authenticate user command
+    /// </summary>
     public class AuthenticateUser : ICommand
     {
         /// <summary>

@@ -2,6 +2,9 @@
 
 namespace Actio.Common.Commands
 {
+    /// <summary>
+    /// The create activity command
+    /// </summary>
     public class CreateActivity : IAuthenticatedCommand
     {
         /// <summary>

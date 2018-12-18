@@ -3,6 +3,9 @@ using System.Threading.Tasks;
 
 namespace Actio.Services.Activities.Services
 {
+    /// <summary>
+    /// Activity service interface
+    /// </summary>
     public interface IActivityService
     {
         /// <summary>

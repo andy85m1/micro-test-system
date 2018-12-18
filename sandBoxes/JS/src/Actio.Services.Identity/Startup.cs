@@ -1,4 +1,5 @@
-﻿using Actio.Common.Commands;
+﻿using Actio.Common.Auth;
+using Actio.Common.Commands;
 using Actio.Common.Mongo;
 using Actio.Common.RabbitMq;
 using Actio.Services.Identity.Domain.Repositories;
@@ -16,19 +17,31 @@ namespace Actio.Services.Identity
 {
     public class Startup
     {
+        /// <summary>
+        /// Gets the .NET Core configuration
+        /// </summary>
+        public IConfiguration Configuration { get; }
+
+        /// <summary>
+        /// Instantiates a <see cref="Startup"/>
+        /// </summary>
+        /// <param name="configuration"></param>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        /// Configures the container.
+        /// This method gets called by the runtime. Use this method to add services to the container.
+        /// </summary>
+        /// <param name="services">The collection of services to add to the container</param>
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddLogging();
-                        
+
+            services.AddJwt(Configuration);
             services.AddMongoDB(Configuration);
             services.AddScoped<IUserRepository, UserRepository>();
 
@@ -39,7 +52,12 @@ namespace Actio.Services.Identity
             services.AddSingleton<IEncryptor, Encryptor>(); 
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// Configures the HTTP request pipeline
+        /// This method gets called by the runtime
+        /// </summary>
+        /// <param name="app">The application request pipeline</param>
+        /// <param name="env">The web hosting environment</param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())

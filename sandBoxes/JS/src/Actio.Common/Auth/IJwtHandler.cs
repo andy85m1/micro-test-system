@@ -1,5 +1,4 @@
-﻿//using Microsoft.IdentityModel.JsonWebTokens;
-using System;
+﻿using System;
 
 namespace Actio.Common.Auth
 {

@@ -1,5 +1,8 @@
 ﻿namespace Actio.Services.Identity.Domain.Services
 {
+    /// <summary>
+    /// Encryptor interface
+    /// </summary>
     public interface IEncryptor
     {
         /// <summary>

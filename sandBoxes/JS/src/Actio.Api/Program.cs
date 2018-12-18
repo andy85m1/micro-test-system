@@ -5,6 +5,10 @@ namespace Actio.Api
 {
     public class Program
     {
+        /// <summary>
+        /// The API main entry point
+        /// </summary>
+        /// <param name="args"></param>
         public static void Main(string[] args)
         {
             ServiceHost.Create<Startup>(args)

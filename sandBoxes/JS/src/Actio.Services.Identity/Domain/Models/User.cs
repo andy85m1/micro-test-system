@@ -4,6 +4,9 @@ using System;
 
 namespace Actio.Services.Identity.Domain.Models
 {
+    /// <summary>
+    /// A user
+    /// </summary>
     public class User
     {
         /// <summary>

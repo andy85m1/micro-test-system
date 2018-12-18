@@ -2,7 +2,10 @@
 
 namespace Actio.Common.Events
 {
-    public class CreateActivityRejected
+    /// <summary>
+    /// Create activity rejected event
+    /// </summary>
+    public class CreateActivityRejected : IRejectedEvent
     {
         /// <summary>
         /// The activity ID

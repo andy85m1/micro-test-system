@@ -1,5 +1,8 @@
 ﻿namespace Actio.Common.Events
 {
+    /// <summary>
+    /// Rejected event interface
+    /// </summary>
     public interface IRejectedEvent : IEvent
     {
         /// <summary>

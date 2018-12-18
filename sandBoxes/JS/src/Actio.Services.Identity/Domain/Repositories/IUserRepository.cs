@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 
 namespace Actio.Services.Identity.Domain.Repositories
 {
+    /// <summary>
+    /// User repository interface
+    /// </summary>
     public interface IUserRepository
     {
         /// <summary>

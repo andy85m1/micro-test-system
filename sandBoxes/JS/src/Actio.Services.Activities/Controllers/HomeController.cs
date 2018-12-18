@@ -9,9 +9,9 @@ namespace Actio.Services.Activities.Controllers
     public class HomeController : Controller
     {
         /// <summary>
-        /// REST Get action
+        /// GET HTTP request handler
         /// </summary>
-        /// <returns>A string content message</returns>
+        /// <returns>A 200 OK response containing the Activities service ID string</returns>
         [HttpGet("")]
         public IActionResult Get() => Content("Hello from Actio.Services.Activites API!");
     }

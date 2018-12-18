@@ -1,13 +1,14 @@
 ﻿using Microsoft.Extensions.Options;
-using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Driver;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Actio.Common.Mongo
 {
-    public class MongoInitializer : IDatabaseInitializer
+    /// <summary>
+    /// Initialises MongoDB
+    /// </summary>
+    public partial class MongoInitializer : IDatabaseInitializer
     {
         private bool _initialized;
         private readonly bool _seed;
@@ -15,7 +16,7 @@ namespace Actio.Common.Mongo
         private readonly IDatabaseSeeder _seeder;
 
         /// <summary>
-        /// 
+        /// Instantiates the MondoDB initialiser
         /// </summary>
         /// <param name="database">A MongoDB database</param>
         /// <param name="options">MongoDB options</param>
@@ -27,7 +28,7 @@ namespace Actio.Common.Mongo
         }
         
         /// <summary>
-        /// 
+        /// Initialises MongoDB and seeds the database if applicable
         /// </summary>
         /// <returns></returns>
         public async Task InitialiseAsync()
@@ -45,24 +46,11 @@ namespace Actio.Common.Mongo
         }
 
         /// <summary>
-        /// 
+        /// Registers the MongoDB conventions
         /// </summary>
         private void RegisterConventions()
         {
             ConventionRegistry.Register("ActioConventions", new MongoConvention(), x => true);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private class MongoConvention : IConventionPack
-        {
-            public IEnumerable<IConvention> Conventions => new List<IConvention>
-            {
-                new IgnoreExtraElementsConvention(true),
-                new EnumRepresentationConvention(BsonType.String),
-                new CamelCaseElementNameConvention()
-            };
         }
     }
 }

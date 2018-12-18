@@ -1,7 +1,6 @@
 ﻿using Actio.Common.Commands;
 using Microsoft.AspNetCore.Mvc;
 using RawRabbit;
-using System;
 using System.Threading.Tasks;
 
 namespace Actio.Api.Controllers
@@ -24,10 +23,10 @@ namespace Actio.Api.Controllers
         }
 
         /// <summary>
-        /// Sends the Create User command to the bus
+        /// Sends the <see cref="CreateUser"/> command to the bus
         /// </summary>
-        /// <param name="command">The command to send to the bus</param>
-        /// <returns></returns>
+        /// <param name="command">The <see cref="CreateUser"/> command to send to the bus</param>
+        /// <returns>Returns a 202 Accepted response containing the user name</returns>
         [HttpPost("")]
         public async Task<IActionResult> Post([FromBody]CreateUser command)
         {            

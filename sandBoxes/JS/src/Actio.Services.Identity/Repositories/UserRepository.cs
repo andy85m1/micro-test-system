@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Actio.Services.Identity.Repositories
 {
+    /// <summary>
+    /// User repository
+    /// </summary>
     public class UserRepository : IUserRepository
     {
         /// <summary>
@@ -29,33 +32,31 @@ namespace Actio.Services.Identity.Repositories
         }
 
         /// <summary>
-        /// 
+        /// Gets a user using a given ID
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The user ID</param>
+        /// <returns>The user</returns>
         public async Task<User> GetAsync(Guid id)
             => await Collection
             .AsQueryable()
             .FirstOrDefaultAsync(x => x.Id == id);
 
         /// <summary>
-        /// 
+        /// Gets a user using a given email
         /// </summary>
-        /// <param name="email"></param>
-        /// <returns></returns>
+        /// <param name="email">The user email</param>
+        /// <returns>the user</returns>
         public async Task<User> GetAsync(string email)
             => await Collection
             .AsQueryable()
             .FirstOrDefaultAsync(x => x.Email == email.ToLowerInvariant());
 
         /// <summary>
-        /// 
+        /// Adds a user to the repository
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="user">The user to add to the repository</param>
         /// <returns></returns>
         public async Task AddAsync(User user)
             => await Collection.InsertOneAsync(user); 
-
-
     }
 }

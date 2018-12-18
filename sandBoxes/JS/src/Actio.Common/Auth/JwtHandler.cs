@@ -6,6 +6,9 @@ using System.Text;
 
 namespace Actio.Common.Auth
 {
+    /// <summary>
+    /// Handles the Json Web Token
+    /// </summary>
     public class JwtHandler : IJwtHandler
     {
         private readonly JwtSecurityTokenHandler _jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
@@ -15,6 +18,10 @@ namespace Actio.Common.Auth
         private readonly JwtHeader _jwtHeader;
         private readonly TokenValidationParameters _tokenValidationParameters;
 
+        /// <summary>
+        /// Instantiates the Json Web Token handler using the given options
+        /// </summary>
+        /// <param name="options">The JWT options</param>
         public JwtHandler(IOptions<JwtOptions> options)
         {
             _options = options.Value;
@@ -30,6 +37,11 @@ namespace Actio.Common.Auth
 
         }
 
+        /// <summary>
+        /// Creates a JWT using the user ID
+        /// </summary>
+        /// <param name="userId">The user ID</param>
+        /// <returns></returns>
         public JsonWebToken Create(Guid userId)
         {
             var nowUtc = DateTime.UtcNow;

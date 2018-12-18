@@ -33,7 +33,7 @@ namespace Actio.Services.Activities
         }
 
         /// <summary>
-        /// Configures the container
+        /// Configures the container.
         /// This method gets called by the runtime. Use this method to add services to the container
         /// </summary>
         /// <param name="services">The collection of services to add to the container</param>

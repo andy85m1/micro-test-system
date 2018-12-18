@@ -1,12 +1,11 @@
 ﻿using RawRabbit.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Actio.Common.RabbitMq
 {
+    /// <summary>
+    /// RabbitMq service bus options
+    /// </summary>
     public class RabbitMqOptions : RawRabbitConfiguration
     {
-
     }
 }

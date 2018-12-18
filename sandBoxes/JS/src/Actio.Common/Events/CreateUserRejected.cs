@@ -2,7 +2,7 @@
 
 {
     /// <summary>
-    /// Rejected create user event
+    /// Create user rejected event
     /// </summary>
     public class CreateUserRejected : IRejectedEvent
     {

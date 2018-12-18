@@ -2,6 +2,9 @@
 
 namespace Actio.Common.Events
 {
+    /// <summary>
+    /// Authenticate event interface
+    /// </summary>
     public interface IAuthenticatedEvent : IEvent
     {
         /// <summary>

@@ -1,5 +1,8 @@
 ﻿namespace Actio.Common.Events
 {
+    /// <summary>
+    /// User Created event
+    /// </summary>
     public class UserCreated : IEvent
     {
         /// <summary>

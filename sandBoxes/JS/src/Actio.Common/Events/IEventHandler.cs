@@ -13,6 +13,6 @@ namespace Actio.Common.Events
         /// </summary>
         /// <param name="event">The event to handle</param>
         /// <returns>Async task</returns>
-        Task HandleAsync(T @event); //'@' allows the use of a reserved keyword as a variable name
+        Task HandleAsync(T @event);
     }
 }

@@ -1,13 +1,16 @@
 ﻿using Actio.Services.Activities.Domain.Models;
 using Actio.Services.Activities.Domain.Repositories;
-using System;
+using MongoDB.Driver;
 using MongoDB.Driver.Linq;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
-using MongoDB.Driver;
 
 namespace Actio.Services.Activities.Repositories
 {
+    /// <summary>
+    /// Activity repository
+    /// </summary>
     public class ActivityRepository : IActivityRepository
     {
         /// <summary>
