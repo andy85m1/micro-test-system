@@ -1,14 +1,17 @@
-﻿using Actio.Common.Commands;
+﻿using Actio.Api.Repositories;
+using Actio.Common.Commands;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RawRabbit;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Actio.Api.Controllers
 {
     [Route("[controller]")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)] //Secures the whole controller
     public class ActivitiesController : Controller
     {
         /// <summary>
@@ -16,13 +19,47 @@ namespace Actio.Api.Controllers
         /// </summary>
         private readonly IBusClient _busClient;
 
+        private readonly IActivityRepository _repository;
+
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="busClient">The RabbitMQ bus client</param>
-        public ActivitiesController(IBusClient busClient)
+        public ActivitiesController(IBusClient busClient, IActivityRepository repository)
         {
             _busClient = busClient;
+            _repository = repository;
+        }
+
+        /// <summary>
+        /// GET HTTP request handler
+        /// </summary>
+        /// <returns>Returns A 200 OK response containing "Secured" if the JWT is valid</returns>
+        [HttpGet("")]
+        public async Task<IActionResult> Get()
+        {
+            var activities = await _repository
+                .BrowseAsync(Guid.Parse(User.Identity.Name));
+
+            return Json(activities.Select(x => new { x.Id, x.Name, x.Category, x.CreatedAt }));
+        }
+
+        /// <summary>
+        /// GET HTTP request handler
+        /// </summary>
+        /// <returns>Returns A 200 OK response containing "Secured" if the JWT is valid</returns>
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(Guid id)
+        {
+            var activity = await _repository.GetAsync(id);
+
+            if (activity == null)
+                return NotFound();
+
+            if (activity.UserId != Guid.Parse(User.Identity.Name))
+                return Unauthorized();
+
+            return Json(activity);
         }
 
         /// <summary>
@@ -35,18 +72,11 @@ namespace Actio.Api.Controllers
         {
             command.Id = Guid.NewGuid();
             command.CreatedAt = DateTime.UtcNow;
+            command.UserId = Guid.Parse(User.Identity.Name);
 
             await _busClient.PublishAsync(command);
 
             return Accepted($"activities/{command.Id}");
         }
-
-        /// <summary>
-        /// GET HTTP request handler
-        /// </summary>
-        /// <returns>Returns A 200 OK response containing "Secured" if the JWT is valid</returns>
-        [HttpGet("")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        public IActionResult Get() => Content("Secured");
     }
 }
