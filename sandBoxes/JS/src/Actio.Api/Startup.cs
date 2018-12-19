@@ -1,6 +1,8 @@
 ﻿using Actio.Api.Handlers;
+using Actio.Api.Repositories;
 using Actio.Common.Auth;
 using Actio.Common.Events;
+using Actio.Common.Mongo;
 using Actio.Common.RabbitMq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -41,6 +43,9 @@ namespace Actio.Api
             services.AddScoped<IEventHandler<ActivityCreated>, ActivityCreatedHandler>();
             services.AddScoped<IEventHandler<UserAuthenticated>, UserAuthenticatedHandler>();
             services.AddScoped<IEventHandler<UserCreated>, UserCreatedHandler>();
+
+            services.AddMongoDB(Configuration);
+            services.AddScoped<IActivityRepository, ActivityRepository>();
         }
 
         /// <summary>
