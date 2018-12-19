@@ -15,6 +15,12 @@ namespace Actio.Api.Repositories
         private readonly IMongoDatabase _database;
 
         /// <summary>
+        /// Returns the collection of ActivityDTO 
+        /// </summary>
+        private IMongoCollection<ActivityDTO> Collection
+            => _database.GetCollection<ActivityDTO>("Activities");
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="database"></param>
@@ -51,8 +57,5 @@ namespace Actio.Api.Repositories
         => await Collection
             .AsQueryable()
             .FirstOrDefaultAsync(x => x.Id == id);
-
-        private IMongoCollection<ActivityDTO> Collection
-            => _database.GetCollection<ActivityDTO>("Activities");
     }
 }
