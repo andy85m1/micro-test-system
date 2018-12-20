@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Actio.Services.Identity", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actio.Api.Tests", "Actio.Api.Tests\Actio.Api.Tests.csproj", "{42EAB1BD-A0FE-4436-86C4-893C190F2DCF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actio.Services.Activities.Tests", "Actio.Services.Activities.Tests\Actio.Services.Activities.Tests.csproj", "{357FB325-94CA-45A2-90D3-FD8CCD7E9D65}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,18 @@ Global
 		{42EAB1BD-A0FE-4436-86C4-893C190F2DCF}.Release|x64.Build.0 = Release|Any CPU
 		{42EAB1BD-A0FE-4436-86C4-893C190F2DCF}.Release|x86.ActiveCfg = Release|Any CPU
 		{42EAB1BD-A0FE-4436-86C4-893C190F2DCF}.Release|x86.Build.0 = Release|Any CPU
+		{357FB325-94CA-45A2-90D3-FD8CCD7E9D65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{357FB325-94CA-45A2-90D3-FD8CCD7E9D65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{357FB325-94CA-45A2-90D3-FD8CCD7E9D65}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{357FB325-94CA-45A2-90D3-FD8CCD7E9D65}.Debug|x64.Build.0 = Debug|Any CPU
+		{357FB325-94CA-45A2-90D3-FD8CCD7E9D65}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{357FB325-94CA-45A2-90D3-FD8CCD7E9D65}.Debug|x86.Build.0 = Debug|Any CPU
+		{357FB325-94CA-45A2-90D3-FD8CCD7E9D65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{357FB325-94CA-45A2-90D3-FD8CCD7E9D65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{357FB325-94CA-45A2-90D3-FD8CCD7E9D65}.Release|x64.ActiveCfg = Release|Any CPU
+		{357FB325-94CA-45A2-90D3-FD8CCD7E9D65}.Release|x64.Build.0 = Release|Any CPU
+		{357FB325-94CA-45A2-90D3-FD8CCD7E9D65}.Release|x86.ActiveCfg = Release|Any CPU
+		{357FB325-94CA-45A2-90D3-FD8CCD7E9D65}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -95,6 +109,7 @@ Global
 		{A83D96B5-EB2F-45C7-BB1F-747B31A7592E} = {E232C14B-A414-49F2-99A6-F1D0AED838D6}
 		{56822748-038E-4764-B4B7-BC22A9B8BBD1} = {E232C14B-A414-49F2-99A6-F1D0AED838D6}
 		{42EAB1BD-A0FE-4436-86C4-893C190F2DCF} = {E232C14B-A414-49F2-99A6-F1D0AED838D6}
+		{357FB325-94CA-45A2-90D3-FD8CCD7E9D65} = {E232C14B-A414-49F2-99A6-F1D0AED838D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6591F2C2-DFBF-4F2B-9BC0-EBE6D031B955}

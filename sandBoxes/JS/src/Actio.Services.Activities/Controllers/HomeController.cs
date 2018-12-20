@@ -13,6 +13,6 @@ namespace Actio.Services.Activities.Controllers
         /// </summary>
         /// <returns>A 200 OK response containing the Activities service ID string</returns>
         [HttpGet("")]
-        public IActionResult Get() => Content("Hello from Actio.Services.Activites API!");
+        public IActionResult Get() => Content("Hello from Actio.Services.Activities API!");
     }
 }
