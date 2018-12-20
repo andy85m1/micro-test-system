@@ -19,10 +19,13 @@ namespace Actio.Api.Controllers
         /// </summary>
         private readonly IBusClient _busClient;
 
+        /// <summary>
+        /// The Activity repository
+        /// </summary>
         private readonly IActivityRepository _repository;
 
         /// <summary>
-        /// Constructor
+        /// Instantiates the activities controller
         /// </summary>
         /// <param name="busClient">The RabbitMQ bus client</param>
         public ActivitiesController(IBusClient busClient, IActivityRepository repository)
@@ -32,9 +35,9 @@ namespace Actio.Api.Controllers
         }
 
         /// <summary>
-        /// GET HTTP request handler
+        /// GET HTTP request handler: Returns a Json activites DTO object for the current user
         /// </summary>
-        /// <returns>Returns A 200 OK response containing "Secured" if the JWT is valid</returns>
+        /// <returns>Returns A 200 OK response with a Json object containing the user activity DTO</returns>
         [HttpGet("")]
         public async Task<IActionResult> Get()
         {
@@ -45,9 +48,11 @@ namespace Actio.Api.Controllers
         }
 
         /// <summary>
-        /// GET HTTP request handler
+        /// GET HTTP request handler: Searches the activity repository for a given id and returns the Json object if its found and the current user
+        /// is authorised to view
         /// </summary>
-        /// <returns>Returns A 200 OK response containing "Secured" if the JWT is valid</returns>
+        /// <param name="id">The id to search</param>
+        /// <returns>Returns A 200 OK response with a Json object containing the user activity DTO</returns>
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(Guid id)
         {

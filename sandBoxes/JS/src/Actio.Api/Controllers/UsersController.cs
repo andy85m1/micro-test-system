@@ -14,7 +14,7 @@ namespace Actio.Api.Controllers
         private readonly IBusClient _busClient;
 
         /// <summary>
-        /// Constructor
+        /// Instantiates a Users controller
         /// </summary>
         /// <param name="busClient">The RabbitMQ bus client</param>
         public UsersController(IBusClient busClient)
