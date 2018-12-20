@@ -46,6 +46,7 @@ namespace Actio.Api
 
             services.AddMongoDB(Configuration);
             services.AddScoped<IActivityRepository, ActivityRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
         }
 
         /// <summary>

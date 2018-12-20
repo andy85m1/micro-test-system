@@ -35,7 +35,7 @@ namespace Actio.Api.Controllers
         }
 
         /// <summary>
-        /// GET HTTP request handler: Returns a Json activites DTO object for the current user
+        /// GET HTTP request handler: Returns a list of Json activity DTO objects presnet in the repository
         /// </summary>
         /// <returns>Returns A 200 OK response with a Json object containing the user activity DTO</returns>
         [HttpGet("")]
