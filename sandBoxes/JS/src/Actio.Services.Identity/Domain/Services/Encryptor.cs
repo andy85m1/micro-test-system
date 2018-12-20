@@ -23,7 +23,7 @@ namespace Actio.Services.Identity.Domain.Services
         /// </summary>
         /// <param name="value">The value to generate the salt from</param>
         /// <returns>The salt</returns>
-        public string GetSalt(string value)
+        public string GetSalt()
         {
             var random = new Random();
             var saltBytes = new byte[SaltSize];

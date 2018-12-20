@@ -76,7 +76,7 @@ namespace Actio.Services.Identity.Domain.Models
                 throw new ActioException("empty_password", $"Password cannot be empty.");
 
             //Create the secured string from the password
-            Salt = encryptor.GetSalt(password);
+            Salt = encryptor.GetSalt();
 
             //Apply the secured string to the password and return the hash
             Password = encryptor.GetHash(password, Salt);

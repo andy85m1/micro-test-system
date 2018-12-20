@@ -10,7 +10,7 @@
         /// </summary>
         /// <param name="value">The password to apply the salt</param>
         /// <returns>?The secured string</returns>
-        string GetSalt(string value);
+        string GetSalt();
 
         /// <summary>
         /// The password hash
