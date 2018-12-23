@@ -19,6 +19,34 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Actio.Api.Tests", "src\Acti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Actio.Services.Activities.Tests", "src\Actio.Services.Activities.Tests\Actio.Services.Activities.Tests.csproj", "{E81309C2-59FD-472D-89FC-5D66DC577FE0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{BAD7FB7C-0A3C-4F98-86E8-2D382553E55C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Powershell", "Powershell", "{32F92330-98F9-48D5-9A67-C9A052864114}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\Powershell\Actio.Api.ps1 = scripts\Powershell\Actio.Api.ps1
+		scripts\Powershell\Actio.Services.Activities.ps1 = scripts\Powershell\Actio.Services.Activities.ps1
+		scripts\Powershell\Actio.Services.Identity.ps1 = scripts\Powershell\Actio.Services.Identity.ps1
+		scripts\Powershell\Docker clean.ps1 = scripts\Powershell\Docker clean.ps1
+		scripts\Powershell\MongoDB.ps1 = scripts\Powershell\MongoDB.ps1
+		scripts\Powershell\RabbitMQ.ps1 = scripts\Powershell\RabbitMQ.ps1
+		scripts\Powershell\Startup.ps1 = scripts\Powershell\Startup.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{3BC87DA7-E8D9-4275-AFD8-CE688457A540}"
+EndProject
+Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "HyperVSwitch", "tools\HyperVSwitch.exe", "{F8684DB6-3E88-4A11-B0F0-140FB0F8CA1C}"
+	ProjectSection(DebuggerProjectSystem) = preProject
+		PortSupplier = 00000000-0000-0000-0000-000000000000
+		Executable = C:\Users\jspar\Source\Repos\micro-test-system\sandBoxes\JS\tools\HyperVSwitch.exe
+		RemoteMachine = DESKTOP
+		StartingDirectory = C:\Users\jspar\Source\Repos\micro-test-system\sandBoxes\JS\tools
+		Environment = Default
+		LaunchingEngine = 00000000-0000-0000-0000-000000000000
+		UseLegacyDebugEngines = No
+		LaunchSQLEngine = No
+		AttachLaunchAction = No
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -113,6 +141,12 @@ Global
 		{E81309C2-59FD-472D-89FC-5D66DC577FE0}.Release|x64.Build.0 = Release|Any CPU
 		{E81309C2-59FD-472D-89FC-5D66DC577FE0}.Release|x86.ActiveCfg = Release|Any CPU
 		{E81309C2-59FD-472D-89FC-5D66DC577FE0}.Release|x86.Build.0 = Release|Any CPU
+		{F8684DB6-3E88-4A11-B0F0-140FB0F8CA1C}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{F8684DB6-3E88-4A11-B0F0-140FB0F8CA1C}.Debug|x64.ActiveCfg = Release|Any CPU
+		{F8684DB6-3E88-4A11-B0F0-140FB0F8CA1C}.Debug|x86.ActiveCfg = Release|Any CPU
+		{F8684DB6-3E88-4A11-B0F0-140FB0F8CA1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8684DB6-3E88-4A11-B0F0-140FB0F8CA1C}.Release|x64.ActiveCfg = Release|Any CPU
+		{F8684DB6-3E88-4A11-B0F0-140FB0F8CA1C}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -125,6 +159,8 @@ Global
 		{32DC457A-E6C1-4B2E-8E0B-6B47997508CF} = {E232C14B-A414-49F2-99A6-F1D0AED838D6}
 		{2C586927-39E4-4224-A0C6-2D2005CCD4E2} = {E232C14B-A414-49F2-99A6-F1D0AED838D6}
 		{E81309C2-59FD-472D-89FC-5D66DC577FE0} = {E232C14B-A414-49F2-99A6-F1D0AED838D6}
+		{32F92330-98F9-48D5-9A67-C9A052864114} = {BAD7FB7C-0A3C-4F98-86E8-2D382553E55C}
+		{F8684DB6-3E88-4A11-B0F0-140FB0F8CA1C} = {3BC87DA7-E8D9-4275-AFD8-CE688457A540}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6591F2C2-DFBF-4F2B-9BC0-EBE6D031B955}
