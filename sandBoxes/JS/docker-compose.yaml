@@ -1,0 +1,57 @@
+version: "3"
+
+services:
+
+ rabbitmq:
+  image: rabbitmq:3-management
+  hostname: rabbitmq
+  ports:
+    - "5672:5672"
+    - "15672:15672"
+  healthcheck:
+   test: ["CMD", "nc", "-z", "rabbitmq", "5672" ]
+   interval: 5s
+   timeout: 15s
+   retries: 1
+ 
+ mongo:
+  image: mongo
+  hostname: "mongodb"
+  ports:
+    - "27017:27017"
+  volumes:
+    - "./data/db:/data/db"
+   
+ api:
+  image: actio.api
+  restart: on-failure
+  links:
+    - rabbitmq
+    - mongo
+  ports:
+    - "5000:5000"
+  depends_on:
+    - rabbitmq
+   
+ activities-service:
+  image: actio.services.activities
+  restart: on-failure
+  links:
+    - rabbitmq
+    - mongo
+  ports:
+    - "5050:5050"
+  depends_on:
+    - rabbitmq
+
+ identity-service:
+  image: actio.services.identity
+  restart: on-failure
+  links:
+    - rabbitmq
+    - mongo
+  ports:
+    - "5051:5051"
+  depends_on:
+    - rabbitmq
+ 
