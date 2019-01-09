@@ -53,6 +53,11 @@ Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "HyperVSwitch", "tools\Hyper
 		AttachLaunchAction = No
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{096C9A44-E148-455C-956F-EF9CE4B0EE9A}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

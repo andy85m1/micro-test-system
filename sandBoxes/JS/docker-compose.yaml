@@ -3,7 +3,7 @@ version: "3"
 services:
 
  rabbitmq:
-  image: rabbitmq:3-management
+  image: rabbitmq:3.6.5-management
   hostname: rabbitmq
   ports:
     - "5672:5672"
@@ -20,8 +20,9 @@ services:
   ports:
     - "27017:27017"
   volumes:
-    - "./data/db:/data/db"
-   
+    - "mongodata:/data/db" #Maps the data to a docker volume. mongo doesnt support mapping to shared drives in windows!
+    #- ./data/db:/data/db #This wont work in Windows and will cause a wiredtiger fatal assertion. Mongo will not start!
+
  api:
   image: actio.api
   restart: on-failure
@@ -54,4 +55,6 @@ services:
     - "5051:5051"
   depends_on:
     - rabbitmq
- 
+
+volumes: 
+ mongodata:
